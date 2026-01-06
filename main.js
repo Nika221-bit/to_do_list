@@ -35,13 +35,14 @@ function addTask() {
             deletebtn.innerHTML = '\u00D7';
             deletebtn.className = 'delete-btn';
             li.appendChild(deletebtn)
-            
-            taskList.appendChild(li);
 
             //add into JSON
             const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
             tasks.push(task);
             localStorage.setItem("tasks", JSON.stringify(tasks));
+            
+            li.dataset.index = tasks.length - 1;
+            taskList.appendChild(li);
 
  
 
